@@ -59,12 +59,15 @@ function RepoGrid(props) {
                     <div className="popular-rank">#{index + 1}</div>
                     <ul className="space-list-items">
                         <li>
-                            <img className="avatar" src={repo.owner.avatar_url} alt={'Avatar for ' + repo.owner.login}/>
+                            <a href={repo.html_url}>
+                                <img className="avatar" src={repo.owner.avatar_url} alt={'Avatar for ' + repo.owner.login}/>
+                            </a>
                         </li>
                         <li>
                             <a href={repo.html_url}>{repo.name}</a>
                         </li>
                         <li>@{repo.owner.login}</li>
+                        {props.currentLang === "All" ? <li>{repo.language === null ? "Utility" : repo.language}</li> : null}
                         <li>{repo.stargazers_count}</li>
                     </ul>
                 </li>
@@ -129,7 +132,7 @@ class Popular extends React.Component {
                 {/*check if repos have been downloaded via API. If null - show "loading", else render RepoGrid*/}
                 {!this.state.repos
                 ? <p>Loading</p>
-                : <RepoGrid repos={this.state.repos}/>
+                : <RepoGrid repos={this.state.repos} currentLang={this.state.selectedLanguage}/>
                 }
             </div>
         )
