@@ -5,7 +5,10 @@ module.exports = {
     entry: './app/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index_bundle.js'
+        filename: 'index_bundle.js',
+
+        // Magic needed to fix router refresh behavior
+        publicPath: '/'
     },
 
     module: {
@@ -13,6 +16,11 @@ module.exports = {
             {test: /\.(js)$/, use: 'babel-loader'},
             {test: /\.css$/, use: ['style-loader', 'css-loader']}
         ]
+    },
+
+    // Magic needed to fix router refresh behavior
+    devServer:{
+        historyApiFallback:  true
     },
 
     mode: 'development',
