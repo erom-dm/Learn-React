@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 var api = require('../utils/api');
+var Loading = require('./Loading');
 
 //regular components
 /*class SelectLanguage extends React.Component{
@@ -131,7 +132,7 @@ class Popular extends React.Component {
                 />
                 {/*check if repos have been downloaded via API. If null - show "loading", else render RepoGrid*/}
                 {!this.state.repos
-                ? <p>Loading</p>
+                ? <Loading />
                 : <RepoGrid repos={this.state.repos} currentLang={this.state.selectedLanguage}/>
                 }
             </div>
