@@ -10,11 +10,12 @@
     ]
   },
   "scripts": {
+    // ES6 version
     "start": "webpack-dev-server --open",
     "build": "SET NODE_ENV='production' && webpack",
-    "firebase-init" : "firebase login && firebase init",
-    "firebase-add" : "firebase use --add gh-battle-e11dc",
-    "deploy" : "npm run build && firebase deploy"
+    "firebase-init": "firebase login && firebase init",
+    "firebase-add": "firebase use --add gh-battle-e11dc",
+    "deploy": "npm run build && firebase deploy"
   },
   "keywords": [],
   "author": "",
